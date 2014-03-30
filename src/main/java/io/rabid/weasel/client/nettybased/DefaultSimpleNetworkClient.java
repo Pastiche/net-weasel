@@ -1,4 +1,4 @@
-package io.rabid.weasel.nettybased;
+package io.rabid.weasel.client.nettybased;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
@@ -7,10 +7,10 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
-import io.rabid.weasel.client.api.SimpleTCPClient;
+import io.rabid.weasel.client.api.SimpleNetworkClient;
 
-public class DefaultSimpleTCPClient extends SimpleTCPClient {
-    public DefaultSimpleTCPClient(String host, int port) {
+public class DefaultSimpleNetworkClient extends SimpleNetworkClient {
+    public DefaultSimpleNetworkClient(String host, int port) {
         this.host = host;
         this.port = port;
     }

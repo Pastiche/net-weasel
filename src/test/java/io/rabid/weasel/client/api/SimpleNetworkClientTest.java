@@ -4,7 +4,7 @@ import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import io.rabid.weasel.nettybased.DefaultSimpleTCPClient;
+import io.rabid.weasel.client.nettybased.DefaultSimpleNetworkClient;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -15,10 +15,9 @@ import java.util.concurrent.Executors;
 
 import static junit.framework.Assert.assertTrue;
 
-public class SimpleTCPClientTest {
+public class SimpleNetworkClientTest {
     private static ExecutorService executor;
-    private SimpleTCPClient simpleTCPClient;
-    private String host = "localhost";
+    private SimpleNetworkClient simpleNetworkClient;
 
 
     @BeforeClass
@@ -35,12 +34,13 @@ public class SimpleTCPClientTest {
 
     @Before
     public void setUp() {
-        simpleTCPClient = new DefaultSimpleTCPClient(host, 8990);
+        String host = "localhost";
+        simpleNetworkClient = new DefaultSimpleNetworkClient(host, 8990);
     }
 
     @Test
     public void clientCanConnect() {
-        assertTrue(simpleTCPClient.connect("tele1", "passs1"));
+        assertTrue(simpleNetworkClient.connect("tele1", "passs1"));
     }
 
     private static class TestServer {

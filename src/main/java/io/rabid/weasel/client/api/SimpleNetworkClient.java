@@ -1,6 +1,6 @@
 package io.rabid.weasel.client.api;
 
-public abstract class SimpleTCPClient {
+public abstract class SimpleNetworkClient {
 
     protected String host;
     protected int port;
