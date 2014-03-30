@@ -35,7 +35,18 @@ public class SimpleNetworkClientTest {
     @Before
     public void setUp() {
         String host = "localhost";
+        giveTheServerABreak();
         simpleNetworkClient = new DefaultSimpleNetworkClient(host, 8990);
+    }
+
+    private void giveTheServerABreak() {
+        synchronized (this) {
+            try {
+                wait(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Test
